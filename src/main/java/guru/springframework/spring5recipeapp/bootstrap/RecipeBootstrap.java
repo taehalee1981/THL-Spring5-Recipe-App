@@ -102,24 +102,21 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         Notes guaNotes = new Notes();
         guaNotes.setRecipeNotes("guaca notes");
-        guaNotes.setRecipe(guaRecipe);
         guaRecipe.setNotes(guaNotes);
 
-        guaRecipe.getIngredients().add(new Ingredient("ripe avocado", new BigDecimal(2), eachUom, guaRecipe));
-        guaRecipe.getIngredients().add(new Ingredient("Kosher Salt", new BigDecimal(5), teaSpoonUom, guaRecipe));
-        guaRecipe.getIngredients().add(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(2), tableSpoonUom, guaRecipe));
-        guaRecipe.getIngredients().add(new Ingredient("minced red onion or sliced green onion", new BigDecimal(2), eachUom, guaRecipe));
-        guaRecipe.getIngredients().add(new Ingredient("serrano ciles stems and seeds removed, minced", new BigDecimal(2), eachUom, guaRecipe));
-        guaRecipe.getIngredients().add(new Ingredient("Cilantro", new BigDecimal(2), tableSpoonUom, guaRecipe));
-        guaRecipe.getIngredients().add(new Ingredient("freshly grated black pepper", new BigDecimal(2), dashUom, guaRecipe));
-        guaRecipe.getIngredients().add(new Ingredient("ripe tomato, seeeds and pulp removed, chopped", new BigDecimal(5), dashUom, guaRecipe));
+        guaRecipe.addIngredient(new Ingredient("ripe avocado", new BigDecimal(2), eachUom));
+        guaRecipe.addIngredient(new Ingredient("Kosher Salt", new BigDecimal(5), teaSpoonUom));
+        guaRecipe.addIngredient(new Ingredient("fresh lime juice or lemon juice", new BigDecimal(2), eachUom));
+        guaRecipe.addIngredient(new Ingredient("minced red onion or sliced green onion", new BigDecimal(2), eachUom));
+        guaRecipe.addIngredient(new Ingredient("serrano ciles stems and seeds removed, minced", new BigDecimal(2), eachUom));
+        guaRecipe.addIngredient(new Ingredient("Cilantro", new BigDecimal(2), tableSpoonUom));
+        guaRecipe.addIngredient(new Ingredient("freshly grated black pepper", new BigDecimal(2), dashUom));
+        guaRecipe.addIngredient(new Ingredient("ripe tomato, seeeds and pulp removed, chopped", new BigDecimal(5), dashUom));
 
         guaRecipe.getCategories().add(americanCategory);
         guaRecipe.getCategories().add(mexicanCategory);
 
         recipes.add(guaRecipe);
-
-
 
         Recipe tacosRecipe = new Recipe();
         tacosRecipe.setDescription("Spicy Grilled Chicken Taco");
@@ -130,15 +127,14 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         Notes tacoNotes = new Notes();
         tacoNotes.setRecipeNotes("spicy notes");
-        tacoNotes.setRecipe(tacosRecipe);
         tacosRecipe.setNotes(tacoNotes);
 
-        tacosRecipe.getIngredients().add(new Ingredient("Ancho Chilli Powder", new BigDecimal(2), tableSpoonUom, tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("Dried Oregano", new BigDecimal(1), teaSpoonUom, tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("Dried Cumin", new BigDecimal(1), tableSpoonUom, tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("Olive Oil", new BigDecimal(2), teaSpoonUom, tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("boneless chicken thighs", new BigDecimal(4), tableSpoonUom, tacosRecipe));
-        tacosRecipe.getIngredients().add(new Ingredient("water", new BigDecimal(4), cupUom, tacosRecipe));
+        tacosRecipe.addIngredient(new Ingredient("Ancho Chilli Powder", new BigDecimal(2), tableSpoonUom));
+        tacosRecipe.addIngredient(new Ingredient("Dried Oregano", new BigDecimal(1), teaSpoonUom));
+        tacosRecipe.addIngredient(new Ingredient("Dried Cumin", new BigDecimal(1), tableSpoonUom));
+        tacosRecipe.addIngredient(new Ingredient("Olive Oil", new BigDecimal(2), teaSpoonUom));
+        tacosRecipe.addIngredient(new Ingredient("boneless chicken thighs", new BigDecimal(4), tableSpoonUom));
+        tacosRecipe.addIngredient(new Ingredient("water", new BigDecimal(4), cupUom));
 
         tacosRecipe.getCategories().add(americanCategory);
         tacosRecipe.getCategories().add(mexicanCategory);
