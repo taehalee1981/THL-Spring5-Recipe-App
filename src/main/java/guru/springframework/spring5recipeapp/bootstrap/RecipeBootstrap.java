@@ -4,15 +4,18 @@ import guru.springframework.spring5recipeapp.domain.*;
 import guru.springframework.spring5recipeapp.repositories.CategoryRepository;
 import guru.springframework.spring5recipeapp.repositories.RecipeRepository;
 import guru.springframework.spring5recipeapp.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
 
@@ -27,8 +30,10 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
     }
 
     @Override
+    @Transactional
     public void onApplicationEvent(ContextRefreshedEvent event) {
         recipeRepository.saveAll(getRecipes());
+        log.debug("Loading Bootstrap Data");
     }
 
     private List<Recipe> getRecipes(){
@@ -97,7 +102,8 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         guaRecipe.setDescription("Perfect Guacamole");
         guaRecipe.setPrepTime(10);
         guaRecipe.setCookTime(0);
-        guaRecipe.setDifficulty(Difficulty.EAST);
+        guaRecipe.setServings(4);
+        guaRecipe.setDifficulty(Difficulty.EASY);
         guaRecipe.setDirections("This is guacamole");
 
         Notes guaNotes = new Notes();
@@ -122,6 +128,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
         tacosRecipe.setDescription("Spicy Grilled Chicken Taco");
         tacosRecipe.setPrepTime(20);
         tacosRecipe.setCookTime(9);
+        guaRecipe.setServings(2);
         tacosRecipe.setDifficulty(Difficulty.MODERATE);
         tacosRecipe.setDirections("This is scipy");
 
